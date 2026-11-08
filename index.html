@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Store - Game & Digital Service</title>
+    <!-- Google Font Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="smallCourser"></div>
+    <div class="bigCourser"></div>
+
+    <!-- ================= AUTHENTICATION (LOGIN / REGISTER) ================= -->
+    <section id="auth-section" class="auth-wrapper">
+        <div class="form-box">
+            
+            <!-- FORM LOGIN -->
+            <div class="form-value" id="loginFormValue">
+                <form id="loginForm" autocomplete="off">
+                    <h2>Đăng Nhập</h2>
+                    
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" id="loginEmail" required autocomplete="new-password">
+                        <label for="loginEmail">Email</label>
+                    </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline" class="togglePassword"></ion-icon>
+                        <input type="password" id="loginPassword" required autocomplete="new-password">
+                        <label for="loginPassword">Mật khẩu</label>
+                    </div>
+
+                    <div class="forget">
+                        <label><input type="checkbox"> Nhớ mật khẩu</label>
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+
+                    <button type="submit" class="btn-shine">Đăng Nhập</button>
+
+                    <div class="register">
+                        <p>Chưa có tài khoản? <a href="#" id="toRegister">Đăng ký ngay</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- FORM REGISTER -->
+            <div class="form-value hidden" id="registerFormValue">
+                <form id="registerForm" autocomplete="off">
+                    <h2>Đăng Ký</h2>
+
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" id="regUser" required autocomplete="off">
+                        <label for="regUser">Tên đăng nhập</label>
+                    </div>
+                    
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" id="regEmail" required autocomplete="off">
+                        <label for="regEmail">Email</label>
+                    </div>
+
+                    <div class="inputbox otp-box">
+                        <input type="text" id="regOtp" required maxlength="6" autocomplete="off">
+                        <label for="regOtp">Mã OTP</label>
+                        <button type="button" id="btnSendOtp">Gửi mã</button>
+                    </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline" class="togglePassword"></ion-icon>
+                        <input type="password" id="regPassword" required autocomplete="new-password">
+                        <label for="regPassword">Mật khẩu</label>
+                    </div>
+
+                    <button type="submit" class="btn-shine">Đăng Ký</button>
+
+                    <div class="register">
+                        <p>Đã có tài khoản? <a href="#" id="toLogin">Đăng nhập</a></p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= SHOP DASHBOARD ================= -->
+    <div id="shop-section" class="shop-container hidden">
+        <header class="shop-header">
+            <div class="header-container">
+                <div class="logo-area">
+                    <h2>Divine Store</h2>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm tool hack, game, phần mềm...">
+                    <button><ion-icon name="search-outline"></ion-icon></button>
+                </div>
+
+                <div class="header-actions">
+                    <!-- Cart Button -->
+                    <div class="cart-btn-wrapper" id="openCartBtn">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span class="cart-badge" id="cartCount">0</span>
+                    </div>
+
+                    <!-- User Profile Dropdown -->
+                    <div class="user-menu-wrapper">
+                        <div class="user-profile-btn" id="userDropdownBtn">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" alt="Avatar">
+                            <span id="displayUsername">Tài khoản</span>
+                            <ion-icon name="chevron-down-outline"></ion-icon>
+                        </div>
+                        
+                        <div class="dropdown-menu" id="userDropdownMenu">
+                            <div class="dropdown-header">
+                                <p class="balance-title">Số dư tài khoản</p>
+                                <p class="balance-amount">500.000đ <span style="color:#10b981;">(+)</span></p>
+                            </div>
+                            <ul>
+                                <li><a href="#"><ion-icon name="person-outline"></ion-icon> Quản lý tài khoản</a></li>
+                                <li><a href="#" id="openHistoryBtn"><ion-icon name="receipt-outline"></ion-icon> Lịch sử đơn hàng</a></li>
+                                <hr>
+                                <li><a href="#" id="btnLogout" class="logout-link"><ion-icon name="log-out-outline"></ion-icon> Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="shop-main">
+            <div class="container">
+                <div class="hero-banner">
+                    <div class="banner-content">
+                        <h1>KHO TOOL HACK GAME & DỊCH VỤ SỐ UY TÍN</h1>
+                        <p>Hệ thống tự động kích hoạt key và giao hàng 24/7</p>
+                    </div>
+                </div>
+
+                <section class="products-section">
+                    <h2>Sản phẩm dịch vụ hot</h2>
+                    <p class="section-desc">Bấm vào để xem chi tiết hoặc thêm vào giỏ hàng mua ngay</p>
+                    
+                    <div class="product-grid" id="productGrid">
+                        <!-- Card 1 -->
+                        <div class="product-card" data-name="Hack Free Fire VIP (Auto Headshot)" data-price="69000">
+                            <div class="product-img" style="background: linear-gradient(135deg, #ef4444, #991b1b);">FREE FIRE HACK</div>
+                            <div class="product-info">
+                                <h3>Hack Free Fire VIP (Auto Headshot, Antiban)</h3>
+                                <p class="price">69.000đ <span class="old-price">150.000đ</span></p>
+                                <div class="card-btn-group">
+                                    <button class="btn-add-cart">Thêm giỏ</button>
+                                    <button class="btn-buy-card">Mua ngay</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="product-card" data-name="Hack Liên Quân Mobile (Full Map)" data-price="79000">
+                            <div class="product-img" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">LIÊN QUÂN HACK</div>
+                            <div class="product-info">
+                                <h3>Hack Liên Quân Mobile (Full Map, Hiện Sương)</h3>
+                                <p class="price">79.000đ <span class="old-price">180.000đ</span></p>
+                                <div class="card-btn-group">
+                                    <button class="btn-add-cart">Thêm giỏ</button>
+                                    <button class="btn-buy-card">Mua ngay</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="product-card" data-name="Hack PUBG Mobile (Esp, Aimbot)" data-price="89000">
+                            <div class="product-img" style="background: linear-gradient(135deg, #f59e0b, #b45309);">PUBG HACK VIP</div>
+                            <div class="product-info">
+                                <h3>Hack PUBG Mobile (ESP Hiện Địch, Aimbot 100%)</h3>
+                                <p class="price">89.000đ <span class="old-price">200.000đ</span></p>
+                                <div class="card-btn-group">
+                                    <button class="btn-add-cart">Thêm giỏ</button>
+                                    <button class="btn-buy-card">Mua ngay</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="product-card" data-name="Nạp Thẻ Steam Wallet 10$" data-price="89000">
+                            <div class="product-img" style="background: linear-gradient(135deg, #10b981, #047857);">STEAM WALLET</div>
+                            <div class="product-info">
+                                <h3>Nạp thẻ Wallet Steam 10$ Code VN</h3>
+                                <p class="price">89.000đ <span class="old-price">260.000đ</span></p>
+                                <div class="card-btn-group">
+                                    <button class="btn-add-cart">Thêm giỏ</button>
+                                    <button class="btn-buy-card">Mua ngay</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="product-card" data-name="Tài khoản ChatGPT Plus OpenAI" data-price="150000">
+                            <div class="product-img" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">CHATGPT PLUS</div>
+                            <div class="product-info">
+                                <h3>Tài khoản ChatGPT Plus GPT-4o Chính Chủ</h3>
+                                <p class="price">150.000đ <span class="old-price">500.000đ</span></p>
+                                <div class="card-btn-group">
+                                    <button class="btn-add-cart">Thêm giỏ</button>
+                                    <button class="btn-buy-card">Mua ngay</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="product-card" data-name="Netflix Premium 4K 1 Tháng" data-price="89000">
+                            <div class="product-img" style="background: linear-gradient(135deg, #ec4899, #be185d);">NETFLIX 4K</div>
+                            <div class="product-info">
+                                <h3>Tài khoản Netflix Premium 4K Xem Phim VIP</h3>
+                                <p class="price">89.000đ <span class="old-price">260.000đ</span></p>
+                                <div class="card-btn-group">
+                                    <button class="btn-add-cart">Thêm giỏ</button>
+                                    <button class="btn-buy-card">Mua ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= MODAL GIỎ HÀNG (CART) ================= -->
+    <div id="cart-modal" class="modal-overlay hidden">
+        <div class="modal-box modal-large">
+            <button class="close-modal" id="closeCartBtn">&times;</button>
+            <h2>Giỏ Hàng Của Bạn</h2>
+            <div class="cart-items-list" id="cartItemsContainer">
+                <p class="empty-msg">Giỏ hàng hiện đang trống!</p>
+            </div>
+            <div class="cart-summary">
+                <p>Tổng thanh toán: <span id="cartTotalPrice">0đ</span></p>
+                <button id="btnCheckoutCart" class="btn-buy-now">Tiến Hành Thanh Toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL MUA HÀNG & THANH TOÁN ================= -->
+    <div id="checkout-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <button class="close-modal" id="closeCheckoutBtn">&times;</button>
+            <h2>Xác Nhận Thanh Toán</h2>
+            <p id="modalProductName" class="modal-prod-title">Tên sản phẩm</p>
+            <p id="modalProductPrice" class="modal-prod-price">0đ</p>
+            
+            <form id="checkoutForm">
+                <div class="inputbox-modal">
+                    <label>Tài khoản nhận Key/Item</label>
+                    <input type="text" id="buyerAccount" required placeholder="Nhập Email hoặc SĐT Zalo...">
+                </div>
+                
+                <div class="inputbox-modal">
+                    <label>Phương thức thanh toán</label>
+                    <div class="select-wrapper">
+                        <select id="payMethod">
+                            <option value="Ví MoMo Auto">Ví điện tử MoMo (Tự động)</option>
+                            <option value="MBBank QR">Chuyển khoản Ngân hàng (QR Code)</option>
+                            <option value="Thẻ Cào Điện Thoại">Thẻ cào điện thoại (Viettel/Vinaphone)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-buy-now">Xác Nhận Thanh Toán</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL LỊCH SỬ ĐƠN HÀNG ================= -->
+    <div id="history-modal" class="modal-overlay hidden">
+        <div class="modal-box modal-large">
+            <button class="close-modal" id="closeHistoryBtn">&times;</button>
+            <h2>Lịch Sử Đơn Hàng</h2>
+            <div class="history-list" id="historyListContainer">
+                <p class="empty-msg">Chưa có đơn hàng nào được ghi nhận!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- JavaScript App -->
+    <script>
+        // 1. CUSTOM CURSOR
+        let smallCourser = document.querySelector(".smallCourser");
+        let bigCourser = document.querySelector(".bigCourser");
+        document.addEventListener("mousemove", function (e) {
+            let x = e.clientX;
+            let y = e.clientY;
+            smallCourser.style.left = x + "px";
+            smallCourser.style.top = y + "px";
+            setTimeout(() => {
+                bigCourser.style.left = x + "px";
+                bigCourser.style.top = y + "px";
+            }, 80);
+        });
+
+        // 2. AUTH FORM SWITCH
+        const loginFormValue = document.getElementById('loginFormValue');
+        const registerFormValue = document.getElementById('registerFormValue');
+        document.getElementById('toRegister').addEventListener('click', (e) => {
+            e.preventDefault();
+            loginFormValue.classList.add('hidden');
+            registerFormValue.classList.remove('hidden');
+        });
+        document.getElementById('toLogin').addEventListener('click', (e) => {
+            e.preventDefault();
+            registerFormValue.classList.add('hidden');
+            loginFormValue.classList.remove('hidden');
+        });
+
+        // Toggle Password
+        document.querySelectorAll('.togglePassword').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.name = type === 'password' ? 'lock-closed-outline' : 'lock-open-outline';
+            });
+        });
+
+        // OTP Simulation
+        let generatedOtp = null;
+        const btnSendOtp = document.getElementById('btnSendOtp');
+        btnSendOtp.addEventListener('click', () => {
+            const email = document.getElementById('regEmail').value.trim();
+            if (!email) { alert('Vui lòng nhập Email!'); return; }
+            generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+            alert(`[OTP GIẢ LẬP] Mã OTP gửi tới ${email} là: ${generatedOtp}`);
+            let count = 60;
+            btnSendOtp.disabled = true;
+            btnSendOtp.innerText = `${count}s`;
+            const timer = setInterval(() => {
+                count--;
+                btnSendOtp.innerText = `${count}s`;
+                if (count <= 0) { clearInterval(timer); btnSendOtp.disabled = false; btnSendOtp.innerText = 'Gửi mã'; }
+            }, 1000);
+        });
+
+        // 3. SWITCH TO SHOP
+        const authSection = document.getElementById('auth-section');
+        const shopSection = document.getElementById('shop-section');
+        const displayUsername = document.getElementById('displayUsername');
+
+        function openShop(username) {
+            displayUsername.innerText = username;
+            authSection.style.opacity = '0';
+            setTimeout(() => {
+                authSection.classList.add('hidden');
+                shopSection.classList.remove('hidden');
+                window.scrollTo(0,0);
+            }, 300);
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            openShop(document.getElementById('loginEmail').value.split('@')[0]);
+        });
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (document.getElementById('regOtp').value.trim() !== generatedOtp) {
+                alert('Mã OTP không đúng!'); return;
+            }
+            openShop(document.getElementById('regUser').value);
+        });
+
+        // User Dropdown Menu
+        const userDropdownBtn = document.getElementById('userDropdownBtn');
+        const userDropdownMenu = document.getElementById('userDropdownMenu');
+        userDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdownMenu.classList.toggle('show');
+        });
+        window.addEventListener('click', () => userDropdownMenu.classList.remove('show'));
+        document.getElementById('btnLogout').addEventListener('click', (e) => {
+            e.preventDefault();
+            shopSection.classList.add('hidden');
+            authSection.classList.remove('hidden');
+            authSection.style.opacity = '1';
+        });
+
+        // 4. QUẢN LÝ GIỎ HÀNG & LỊCH SỬ ĐƠN HÀNG (STATE)
+        let cart = [];
+        let orderHistory = [];
+        let currentCheckoutItem = null; // null nếu checkout cả giỏ hàng
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cartCount');
+            const container = document.getElementById('cartItemsContainer');
+            const cartTotalPrice = document.getElementById('cartTotalPrice');
+
+            const totalQuantity = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCount.innerText = totalQuantity;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="empty-msg">Giỏ hàng hiện đang trống!</p>';
+                cartTotalPrice.innerText = '0đ';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>${item.price.toLocaleString('vi-VN')}đ</p>
+                        </div>
+                        <div class="cart-item-qty">
+                            <button onclick="changeQty(${index}, -1)">-</button>
+                            <span>${item.qty}</span>
+                            <button onclick="changeQty(${index}, 1)">+</button>
+                        </div>
+                        <button class="btn-remove-item" onclick="removeItem(${index})">&times;</button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            cartTotalPrice.innerText = total.toLocaleString('vi-VN') + 'đ';
+        }
+
+        window.changeQty = function(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            updateCartUI();
+        };
+
+        window.removeItem = function(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        };
+
+        // Add to Cart
+        document.querySelectorAll('.btn-add-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const card = btn.closest('.product-card');
+                const name = card.getAttribute('data-name');
+                const price = parseInt(card.getAttribute('data-price'));
+
+                const existIndex = cart.findIndex(item => item.name === name);
+                if (existIndex > -1) {
+                    cart[existIndex].qty++;
+                } else {
+                    cart.push({ name, price, qty: 1 });
+                }
+                updateCartUI();
+                alert(`Đã thêm "${name}" vào giỏ hàng!`);
+            });
+        });
+
+        // Open/Close Cart Modal
+        const cartModal = document.getElementById('cart-modal');
+        document.getElementById('openCartBtn').addEventListener('click', () => cartModal.classList.remove('hidden'));
+        document.getElementById('closeCartBtn').addEventListener('click', () => cartModal.classList.add('hidden'));
+
+        // 5. THANH TOÁN (CHECKOUT MODAL)
+        const checkoutModal = document.getElementById('checkout-modal');
+        const modalProductName = document.getElementById('modalProductName');
+        const modalProductPrice = document.getElementById('modalProductPrice');
+
+        // Mua ngay từ sản phẩm
+        document.querySelectorAll('.btn-buy-card').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const card = btn.closest('.product-card');
+                const name = card.getAttribute('data-name');
+                const price = parseInt(card.getAttribute('data-price'));
+
+                currentCheckoutItem = { name, price, qty: 1 };
+                modalProductName.innerText = name;
+                modalProductPrice.innerText = "Tổng tiền: " + price.toLocaleString('vi-VN') + "đ";
+                checkoutModal.classList.remove('hidden');
+            });
+        });
+
+        // Mua từ giỏ hàng
+        document.getElementById('btnCheckoutCart').addEventListener('click', () => {
+            if (cart.length === 0) { alert('Giỏ hàng trống!'); return; }
+            currentCheckoutItem = null;
+            const total = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            modalProductName.innerText = `Thanh toán giỏ hàng (${cart.length} món)`;
+            modalProductPrice.innerText = "Tổng tiền: " + total.toLocaleString('vi-VN') + "đ";
+            cartModal.classList.add('hidden');
+            checkoutModal.classList.remove('hidden');
+        });
+
+        document.getElementById('closeCheckoutBtn').addEventListener('click', () => checkoutModal.classList.add('hidden'));
+
+        // Submit Checkout Form
+        document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const account = document.getElementById('buyerAccount').value.trim();
+            const method = document.getElementById('payMethod').value;
+            const now = new Date().toLocaleString('vi-VN');
+
+            if (currentCheckoutItem) {
+                // Đơn hàng lẻ
+                orderHistory.unshift({
+                    code: 'ORD' + Math.floor(100000 + Math.random() * 900000),
+                    items: `${currentCheckoutItem.name} (x${currentCheckoutItem.qty})`,
+                    total: currentCheckoutItem.price,
+                    method, account, date: now
+                });
+            } else {
+                // Đơn giỏ hàng
+                const itemsText = cart.map(i => `${i.name} (x${i.qty})`).join(', ');
+                const total = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+                orderHistory.unshift({
+                    code: 'ORD' + Math.floor(100000 + Math.random() * 900000),
+                    items: itemsText, total, method, account, date: now
+                });
+                cart = []; // Reset giỏ hàng
+                updateCartUI();
+            }
+
+            alert('Thanh toán thành công! Thông tin sản phẩm và Key đã gửi vào Lịch sử đơn hàng.');
+            checkoutModal.classList.add('hidden');
+            updateHistoryUI();
+        });
+
+        // 6. LỊCH SỬ ĐƠN HÀNG MODAL
+        const historyModal = document.getElementById('history-modal');
+        document.getElementById('openHistoryBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            updateHistoryUI();
+            historyModal.classList.remove('hidden');
+        });
+        document.getElementById('closeHistoryBtn').addEventListener('click', () => historyModal.classList.add('hidden'));
+
+        function updateHistoryUI() {
+            const container = document.getElementById('historyListContainer');
+            if (orderHistory.length === 0) {
+                container.innerHTML = '<p class="empty-msg">Chưa có đơn hàng nào được ghi nhận!</p>';
+                return;
+            }
+
+            let html = '';
+            orderHistory.forEach(ord => {
+                html += `
+                    <div class="history-item">
+                        <div class="history-head">
+                            <span class="ord-code">Mã đơn: ${ord.code}</span>
+                            <span class="ord-date">${ord.date}</span>
+                        </div>
+                        <div class="history-body">
+                            <p><strong>Sản phẩm:</strong> ${ord.items}</p>
+                            <p><strong>Cấp tới:</strong> ${ord.account}</p>
+                            <p><strong>Thanh toán:</strong> ${ord.method}</p>
+                        </div>
+                        <div class="history-foot">
+                            <span>Thành tiền: <strong>${ord.total.toLocaleString('vi-VN')}đ</strong></span>
+                            <span class="status-success">Thành công</span>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
