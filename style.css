@@ -3,31 +3,31 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    cursor: none !important; /* GIỮ CURSOR TRÒN TRÊN TOÀN BỘ PHẦN TỬ */
+    cursor: none !important;
 }
 
-/* Đảm bảo ngay cả option trong select cũng ẩn chuột mặc định */
 select, option, input, button, a {
     cursor: none !important;
 }
 
 html, body {
     min-height: 100vh;
-    background-color: #0b1329;
+    background-color: #080c14;
+    color: #fff;
 }
 
-/* ================= CUSTOM CURSOR ================= */
+/* ================= CUSTOM CURSOR ================= -->
 .smallCourser {
     height: 14px;
     width: 14px;
-    background-color: #10b981; /* Xanh ngọc Emerald phát sáng tự nhiên */
+    background-color: #10b981;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 99999;
     transition: all 0.01s ease;
-    box-shadow: 0 0 10px #10b981;
+    box-shadow: 0 0 12px #10b981;
 }
 
 .bigCourser {
@@ -40,19 +40,23 @@ html, body {
     transform: translate(-50%, -50%);
     z-index: 99998;
     transition: all 0.1s ease;
-    filter: blur(16px);
-    opacity: 0.45;
+    filter: blur(18px);
+    opacity: 0.35;
 }
 
-/* ================= AUTH WRAPPER ================= */
+/* ================= AUTH WRAPPER (DARK TECH MESH GRADIENT) ================= -->
 .auth-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    background: linear-gradient(135deg, rgba(11, 19, 41, 0.8), rgba(15, 23, 42, 0.8)), 
-                url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    background: #080c14;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 40%);
+    position: relative;
+    overflow: hidden;
     transition: opacity 0.3s ease;
 }
 
@@ -60,26 +64,27 @@ html, body {
 
 .form-box {
     position: relative;
-    width: 400px;
+    z-index: 2;
+    width: 410px;
     padding: 40px 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
 }
 
 .form-value { width: 100%; }
 .form-value.hidden { display: none; }
 
-h2 { font-size: 1.8rem; color: #fff; text-align: center; margin-bottom: 20px; }
+h2 { font-size: 1.8rem; color: #fff; text-align: center; margin-bottom: 20px; font-weight: 600; }
 
 .inputbox {
     position: relative;
     margin: 25px 0;
     width: 100%;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .inputbox label {
@@ -87,7 +92,7 @@ h2 { font-size: 1.8rem; color: #fff; text-align: center; margin-bottom: 20px; }
     top: 50%;
     left: 5px;
     transform: translateY(-50%);
-    color: #cbd5e1;
+    color: #94a3b8;
     font-size: 0.95rem;
     pointer-events: none;
     transition: 0.3s;
@@ -113,7 +118,7 @@ input:focus ~ label, input:valid ~ label {
 .inputbox ion-icon {
     position: absolute;
     right: 8px;
-    color: #fff;
+    color: #94a3b8;
     font-size: 1.2rem;
     top: 12px;
 }
@@ -131,18 +136,20 @@ input:focus ~ label, input:valid ~ label {
     background: #10b981;
     color: #fff;
     border: none;
+    font-weight: 500;
 }
 
 .forget {
     margin: -10px 0 20px;
     font-size: 0.85rem;
-    color: #fff;
+    color: #94a3b8;
     display: flex;
     justify-content: space-between;
 }
 
 .forget label input { margin-right: 5px; accent-color: #10b981; }
-.forget a { color: #fff; text-decoration: none; }
+.forget a { color: #cbd5e1; text-decoration: none; }
+.forget a:hover { color: #10b981; }
 
 button[type="submit"], .btn-buy-now {
     width: 100%;
@@ -153,43 +160,44 @@ button[type="submit"], .btn-buy-now {
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
     transition: all 0.25s ease;
 }
 
 button[type="submit"]:hover, .btn-buy-now:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.6);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
     background: linear-gradient(135deg, #059669, #047857);
 }
 
-.register { font-size: 0.85rem; color: #fff; text-align: center; margin-top: 20px; }
+.register { font-size: 0.85rem; color: #94a3b8; text-align: center; margin-top: 20px; }
 .register a { color: #10b981; font-weight: 600; text-decoration: none; }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px rgba(15, 23, 42, 0.6) inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(17, 24, 39, 0.9) inset !important;
     -webkit-text-fill-color: #fff !important;
 }
 
-/* ================= SHOP DASHBOARD (TÔNG MÀU TỰ NHIÊN) ================= */
+/* ================= SHOP DASHBOARD (CLEAN DARK UI) ================= */
 .shop-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, rgba(11, 19, 41, 0.92), rgba(15, 23, 42, 0.95)), 
-                url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
-    background-size: cover;
+    background-color: #080c14;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.05) 0px, transparent 50%);
     color: #fff;
 }
 
 .shop-container.hidden { display: none; }
 
 .shop-header {
-    background-color: rgba(11, 19, 41, 0.95);
+    background-color: rgba(13, 19, 32, 0.9);
     backdrop-filter: blur(12px);
     padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .header-container {
@@ -201,85 +209,83 @@ input:-webkit-autofill {
     justify-content: space-between;
 }
 
-.logo-area h2 { font-size: 1.5rem; color: #10b981; margin: 0; font-weight: 700; }
+.logo-area h2 { font-size: 1.5rem; color: #10b981; margin: 0; font-weight: 700; letter-spacing: 0.5px; }
 
 .search-bar {
     display: flex;
     width: 420px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     overflow: hidden;
 }
 
 .search-bar input {
-    flex: 1; border: none; background: transparent; padding: 10px 15px; outline: none; color: #fff;
+    flex: 1; border: none; background: transparent; padding: 10px 15px; outline: none; color: #fff; font-size: 0.9rem;
 }
 
-.search-bar input::placeholder { color: #94a3b8; }
+.search-bar input::placeholder { color: #64748b; }
 .search-bar button { background: #10b981; border: none; padding: 0 18px; color: #fff; font-size: 1.1rem; }
 
-/* Header Actions */
 .header-actions { display: flex; align-items: center; gap: 20px; }
 
 .cart-btn-wrapper {
     position: relative;
-    font-size: 1.6rem;
-    color: #fff;
-    background: rgba(255,255,255,0.08);
-    padding: 8px 12px;
+    font-size: 1.5rem;
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 42px; height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s;
+    transition: all 0.2s;
 }
 
-.cart-btn-wrapper:hover { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+.cart-btn-wrapper:hover { background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3); }
 
 .cart-badge {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -4px; right: -4px;
     background: #ef4444;
     color: #fff;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     padding: 2px 6px;
     border-radius: 10px;
 }
 
-/* User Profile Dropdown */
 .user-menu-wrapper { position: relative; }
 
 .user-profile-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
     padding: 6px 15px;
     border-radius: 30px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.user-profile-btn img { width: 30px; height: 30px; border-radius: 50%; }
+.user-profile-btn img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+.user-profile-btn span { font-size: 0.9rem; color: #cbd5e1; font-weight: 500; }
 
 .dropdown-menu {
     position: absolute;
-    right: 0;
-    top: 55px;
+    right: 0; top: 55px;
     width: 230px;
-    background: #152238;
-    border: 1px solid rgba(255,255,255,0.15);
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     padding: 15px;
     display: none;
     z-index: 1000;
 }
 
 .dropdown-menu.show { display: block; }
-.dropdown-header { background: rgba(255,255,255,0.05); padding: 8px 12px; border-radius: 6px; margin-bottom: 10px; }
+.dropdown-header { background: rgba(255, 255, 255, 0.04); padding: 8px 12px; border-radius: 6px; margin-bottom: 10px; }
 .balance-title { font-size: 0.75rem; color: #94a3b8; }
 .balance-amount { font-size: 1rem; font-weight: 700; color: #fff; }
 
@@ -288,25 +294,26 @@ input:-webkit-autofill {
     display: flex; align-items: center; gap: 8px; padding: 8px; color: #cbd5e1; text-decoration: none; font-size: 0.85rem; border-radius: 6px;
 }
 
-.dropdown-menu ul li a:hover { background: rgba(255,255,255,0.08); color: #10b981; }
+.dropdown-menu ul li a:hover { background: rgba(255, 255, 255, 0.06); color: #10b981; }
 .logout-link { color: #f87171 !important; }
 
 /* Shop Main Grid */
-.shop-main { padding: 30px 0; }
+.shop-main { padding: 35px 0; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 .hero-banner {
     width: 100%; height: 220px;
-    background: linear-gradient(135deg, rgba(21, 34, 56, 0.9), rgba(11, 19, 41, 0.9));
-    border: 1px solid rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, #111827, #1f2937);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; margin-bottom: 30px;
+    display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.banner-content h1 { font-size: 1.8rem; color: #10b981; margin-bottom: 8px; }
-.banner-content p { color: #cbd5e1; }
+.banner-content h1 { font-size: 1.7rem; color: #10b981; margin-bottom: 8px; font-weight: 600; }
+.banner-content p { color: #94a3b8; font-size: 0.95rem; }
 
-.products-section h2 { font-size: 1.5rem; color: #fff; text-align: left; margin-bottom: 5px; }
+.products-section h2 { font-size: 1.4rem; color: #fff; text-align: left; margin-bottom: 4px; font-weight: 600; }
 .section-desc { color: #94a3b8; margin-bottom: 25px; font-size: 0.9rem; }
 
 .product-grid {
@@ -314,39 +321,38 @@ input:-webkit-autofill {
 }
 
 .product-card {
-    background: rgba(21, 34, 56, 0.7);
+    background: #111827;
     border-radius: 14px; overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     display: flex; flex-direction: column;
 }
 
 .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.5);
-    border-color: #10b981;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    border-color: rgba(16, 185, 129, 0.4);
 }
 
 .product-img {
-    height: 130px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.5px;
+    height: 130px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1rem; letter-spacing: 0.5px;
 }
 
 .product-info { padding: 15px; display: flex; flex-direction: column; flex: 1; }
-.product-info h3 { font-size: 0.9rem; color: #fff; margin-bottom: 10px; height: 38px; overflow: hidden; }
+.product-info h3 { font-size: 0.9rem; color: #f8fafc; margin-bottom: 10px; height: 38px; overflow: hidden; font-weight: 500; }
 
 .price { font-size: 1rem; font-weight: 700; color: #10b981; margin-bottom: 15px; }
-.old-price { font-size: 0.8rem; color: #94a3b8; text-decoration: line-through; margin-left: 8px; font-weight: 400; }
+.old-price { font-size: 0.8rem; color: #64748b; text-decoration: line-through; margin-left: 8px; font-weight: 400; }
 
 .card-btn-group { display: flex; gap: 8px; margin-top: auto; }
 
 .btn-add-cart {
-    flex: 1; padding: 8px 0; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-    color: #fff; border-radius: 6px; font-size: 0.8rem; transition: background 0.2s;
+    flex: 1; padding: 8px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    color: #cbd5e1; border-radius: 6px; font-size: 0.8rem; transition: all 0.2s;
 }
 
-.btn-add-cart:hover { background: rgba(255,255,255,0.18); }
+.btn-add-cart:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
 .btn-buy-card {
     flex: 1; padding: 8px 0; background: #10b981; border: none;
@@ -355,18 +361,18 @@ input:-webkit-autofill {
 
 .btn-buy-card:hover { background: #059669; }
 
-/* ================= MODAL STYLING & SỬA LỖI SELECT THẺ MUA HÀNG ================= */
+/* ================= MODAL & SELECT FIX ================= */
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px);
     display: flex; justify-content: center; align-items: center; z-index: 10000;
 }
 
 .modal-overlay.hidden { display: none; }
 
 .modal-box {
-    position: relative; width: 420px; background: #152238;
-    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px;
+    position: relative; width: 420px; background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px;
     padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); color: #fff;
 }
 
@@ -375,38 +381,38 @@ input:-webkit-autofill {
 .close-modal {
     position: absolute; top: 15px; right: 20px; background: transparent; border: none; color: #94a3b8; font-size: 1.5rem;
 }
+.close-modal:hover { color: #fff; }
 
 .modal-box h2 { font-size: 1.3rem; margin-bottom: 15px; color: #10b981; }
 .modal-prod-title { font-size: 1rem; font-weight: 600; }
 .modal-prod-price { font-size: 1.1rem; font-weight: 700; color: #10b981; margin-bottom: 20px; }
 
 .inputbox-modal { margin-bottom: 18px; }
-.inputbox-modal label { display: block; font-size: 0.85rem; color: #cbd5e1; margin-bottom: 6px; }
+.inputbox-modal label { display: block; font-size: 0.85rem; color: #94a3b8; margin-bottom: 6px; }
 
 .inputbox-modal input {
-    width: 100%; padding: 10px; background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; outline: none; font-size: 0.9rem;
+    width: 100%; padding: 10px; background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 8px; color: #fff; outline: none; font-size: 0.9rem;
 }
+.inputbox-modal input:focus { border-color: #10b981; }
 
-/* FIX LỖI SELECT VÀ OPTION TRẮNG TINH */
 .select-wrapper { position: relative; width: 100%; }
 
 .inputbox-modal select {
     width: 100%;
     padding: 10px 12px;
-    background: #0b1329 !important; /* Nền tối rõ ràng */
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #111827 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
-    color: #fff !important; /* Chữ trắng hiển thị tốt */
+    color: #fff !important;
     outline: none;
     font-size: 0.9rem;
     appearance: none;
     -webkit-appearance: none;
 }
 
-/* FIX TÙY CHỌN OPTION TRONG MENU DROPDOWN */
 .inputbox-modal select option {
-    background-color: #0b1329 !important;
+    background-color: #111827 !important;
     color: #ffffff !important;
     padding: 10px;
 }
@@ -415,7 +421,8 @@ input:-webkit-autofill {
 .cart-items-list { max-height: 250px; overflow-y: auto; margin-bottom: 20px; }
 .cart-item {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px;
+    padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .cart-item-info h4 { font-size: 0.85rem; color: #fff; }
@@ -423,31 +430,29 @@ input:-webkit-autofill {
 
 .cart-item-qty { display: flex; align-items: center; gap: 8px; }
 .cart-item-qty button {
-    background: rgba(255,255,255,0.1); border: none; color: #fff; width: 24px; height: 24px; border-radius: 4px;
+    background: rgba(255,255,255,0.08); border: none; color: #fff; width: 24px; height: 24px; border-radius: 4px;
 }
-
-.btn-remove-item { background: transparent; border: none; color: #ef4444; font-size: 1.2rem; }
+.btn-remove-item { background: transparent; border: none; color: #f87171; font-size: 1.2rem; }
 
 .cart-summary {
-    display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;
+    display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 15px;
 }
-
 .cart-summary p span { font-weight: 700; color: #10b981; font-size: 1.1rem; }
 
 /* Lịch sử đơn hàng Styles */
 .history-list { max-height: 300px; overflow-y: auto; }
 .history-item {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
     border-radius: 10px; padding: 12px; margin-bottom: 10px;
 }
 
-.history-head { display: flex; justify-content: space-between; font-size: 0.8rem; color: #94a3b8; margin-bottom: 6px; }
+.history-head { display: flex; justify-content: space-between; font-size: 0.8rem; color: #64748b; margin-bottom: 6px; }
 .ord-code { font-weight: 600; color: #10b981; }
 
 .history-body p { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 3px; }
 .history-foot {
-    display: flex; justify-content: space-between; font-size: 0.85rem; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 6px; margin-top: 6px;
+    display: flex; justify-content: space-between; font-size: 0.85rem; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 6px; margin-top: 6px;
 }
 
 .status-success { color: #10b981; font-weight: 600; }
-.empty-msg { text-align: center; color: #94a3b8; font-size: 0.9rem; padding: 20px 0; }
+.empty-msg { text-align: center; color: #64748b; font-size: 0.9rem; padding: 20px 0; }
